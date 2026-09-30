@@ -2,6 +2,8 @@
 
 A small note-sharing app built with Next.js, React, TypeScript, Tailwind CSS, MongoDB Atlas, Mongoose, and Better Auth. Owners can make public or access-key notes, choose one-time or time-based links, set an expiry, see view counts, and revoke links.
 
+Live app: https://noter-beta.vercel.app
+
 ## Run locally
 
 Use Node.js 22.20 or later in the Node 22 line.
@@ -51,7 +53,13 @@ npm run lint
 npm run format:check
 ```
 
-Deployment is outside this local setup. `npm run build` and `npm start` are available for production use; a production build is not required for development.
+## Deployment
+
+The app is hosted on Vercel with MongoDB Atlas. The GitHub repository is connected to Vercel, so pushes to `main` trigger production deployments.
+
+Set `MONGODB_URI`, `BETTER_AUTH_SECRET`, and `BETTER_AUTH_URL` in Vercel's Production environment variables. The authentication URL must match the live website address: `https://noter-beta.vercel.app`. Keep secrets in the dashboard; `.vercelignore` excludes local environment files from CLI uploads.
+
+Vercel uses Node.js 22 and runs `npm run build`. Locally, `npm run build` followed by `npm start` runs the production app. A production build is not required for development.
 
 ## What belongs in Git
 
